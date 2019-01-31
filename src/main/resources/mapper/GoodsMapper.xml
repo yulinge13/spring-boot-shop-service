@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.mapper.GoodsMapper">
+    <!--<resultMap id="baseMap" type="com.example.demo.entity.Goods">-->
+        <!--<id property="id" column="id" jdbcType="INTEGER"/>-->
+        <!--<result property="productName" column="productName" jdbcType="VARCHAR"/>-->
+        <!--<result property="price" column="price" jdbcType="DECIMAL"/>-->
+        <!--<result property="productPic" column="productPic" jdbcType="VARCHAR"/>-->
+        <!--<result property="productNum" column="productNum" jdbcType="INTEGER"/>-->
+        <!--<result property="classFirestId" column="classFirestId" jdbcType="INTEGER"/>-->
+        <!--<result property="classSecId" column="classSecId" jdbcType="INTEGER"/>-->
+        <!--<result property="productContent" column="productContent" jdbcType="VARCHAR"/>-->
+    <!--</resultMap>-->
+    <resultMap id="classListsResultMap" type="ClassLists">
+        <id property="id" column="id" jdbcType="INTEGER"></id>
+        <result property="firstClassName" column="firstClassName" jdbcType="VARCHAR"></result>
+        <result property="secClassName" column="secClassName" jdbcType="VARCHAR"></result>
+    </resultMap>
+    <!-- 查询所有 -->
+    <select id="findAll" resultType="com.example.demo.entity.Goods">
+        SELECT * FROM product
+    </select>
+
+    <select id="findAllMenuLists" resultType="com.example.demo.entity.MenuLists">
+        SELECT * FROM firstmenu
+    </select>
+
+    <select id="getFirstClass" resultType="FirstClass">
+        SELECT * FROM classificationfirst
+    </select>
+    <select id="getClassLists" resultMap="classListsResultMap">
+        SELECT cfs.id as id,cf.name as firstClassName,cs.name as secClassName  FROM class_first_sec cfs
+            LEFT JOIN classificationfirst cf ON cfs.classFirstId = cf.id
+            LEFT JOIN classificationsec cs ON cfs.classSecId = cs.id
+            <if test="firstClassId != null and firstClassId != ''">
+                where cfs.classFirstId = #{firstClassId}
+            </if>
+            order by cf.name desc
+    </select>
+</mapper>
