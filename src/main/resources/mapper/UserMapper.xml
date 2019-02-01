@@ -6,4 +6,8 @@
     <select id="login" parameterType="User" resultType="User">
         select * from user where name=#{name} and passWord=#{passWord}
     </select>
+
+    <insert id="addUserInfo" parameterType="User">
+        INSERT INTO user (`name`,passWord,sex,age) values (#{name},#{passWord},#{sex},#{age})
+    </insert>
 </mapper>

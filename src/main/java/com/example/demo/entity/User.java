@@ -5,7 +5,7 @@ public class User {
     private String name;//用户名
     private Integer age;//用户年龄
     private String passWord;//密码
-    private String sex;//性别
+    private Integer sex;//性别
 
     public Integer getId() {
         return id;
@@ -39,11 +39,11 @@ public class User {
         this.passWord = passWord;
     }
 
-    public String getSex() {
+    public Integer getSex() {
         return sex;
     }
 
-    public void setSex(String sex) {
+    public void setSex(Integer sex) {
         this.sex = sex;
     }
 }

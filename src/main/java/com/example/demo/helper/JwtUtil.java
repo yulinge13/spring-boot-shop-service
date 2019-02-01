@@ -35,10 +35,10 @@ public class JwtUtil {
      * 获得token中的信息无需secret解密也能获得
      * @return token中包含的用户名
      */
-    public String getUsername(String token) {
+    public DecodedJWT getUserInfo(String token) {
         try {
             DecodedJWT jwt = JWT.decode(token);
-            return jwt.getClaim("username").asString();
+            return jwt;
         } catch (JWTDecodeException e) {
             return null;
         }
