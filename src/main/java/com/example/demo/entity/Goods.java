@@ -5,7 +5,7 @@ public class Goods {
     private String productName; //商品名称
     private Double price; //商品价格
     private String productPic; //商品图片
-    private String productNum; //商品数量
+    private Integer productNum; //商品数量
     private Integer classFirestId; //所属的一级分类
     private Integer classSecId; //所属的二级分类
     private String productContent ; //商品信息
@@ -42,11 +42,11 @@ public class Goods {
         this.productPic = productPic;
     }
 
-    public String getProductNum() {
+    public Integer getProductNum() {
         return productNum;
     }
 
-    public void setProductNum(String productNum) {
+    public void setProductNum(Integer productNum) {
         this.productNum = productNum;
     }
 

@@ -39,4 +39,11 @@
             </if>
             order by cf.name desc
     </select>
+    <select id="findOne"  resultType="Goods">
+        SELECT * from product WHERE id=#{productId}
+    </select>
+
+    <update id="upDateOne" parameterType="Goods">
+        UPDATE product SET productNum = #{productNum} WHERE id = #{id}
+    </update>
 </mapper>

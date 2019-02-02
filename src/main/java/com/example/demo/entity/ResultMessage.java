@@ -1,9 +1,12 @@
 package com.example.demo.entity;
 
+import org.springframework.stereotype.Component;
+
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
+@Component
 public class ResultMessage implements Serializable {
     private boolean success;
     private String msg;

@@ -8,5 +8,5 @@ import org.springframework.stereotype.Component;
 @Component
 public interface OrderMapper {
     //下订单
-    OrderEntity addOrder(OrderEntity orderInfo);
+    int addOrder(OrderEntity orderInfo);
 }

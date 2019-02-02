@@ -31,7 +31,7 @@ public class UserServiceImpl implements UserService {
         user.setName(name);
         user.setPassWord(passWord);
         User userInfo = userMapper.login(user);
-        String token = jwtUtil.sign(userInfo.getName(),secret);
+        String token = jwtUtil.sign(userInfo.getId(),secret);
         Map<String,String> map = new HashMap<>();
         map.put("token",token);
         return map;
@@ -49,4 +49,7 @@ public class UserServiceImpl implements UserService {
         }
     }
 
+    public String getSecret() {
+        return secret;
+    }
 }

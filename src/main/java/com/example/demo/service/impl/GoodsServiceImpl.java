@@ -23,6 +23,24 @@ public class GoodsServiceImpl implements GoodsService {
     public List<Goods> findAll() {
         return goodsMapper.findAll();
     }
+
+    //查询单个
+    @Override
+    public Goods findOne(String id) {
+        Goods goodInfo = goodsMapper.findOne(id);
+        return goodInfo;
+    }
+
+    @Override
+    public Integer upDateOne(Goods goodInfo) {
+        try {
+            return goodsMapper.upDateOne(goodInfo);
+        }catch (Exception e){
+           e.printStackTrace();
+            return 0;
+        }
+    }
+
     //路由菜单
     @Override
     public List<MenuLists> findAllMenuLists(){
