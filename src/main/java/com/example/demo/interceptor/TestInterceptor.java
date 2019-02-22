@@ -58,6 +58,7 @@ public class TestInterceptor implements HandlerInterceptor {
                 return true;
             }
         }catch (Exception e){
+            System.out.println("eeeeeee"+e);
             e.printStackTrace();
             return false;
         }
